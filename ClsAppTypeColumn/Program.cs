@@ -19,7 +19,10 @@ namespace ClsAppTypeColumn
             //people.DateCreated = DateTime.Now.Date;
             //people.Active = false;
 
-            people = dao.Add(people);
+            //people = dao.Add(people);
+
+            IList<People> p = dao.All()
+                .ToList();
         }
     }
 }
