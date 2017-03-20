@@ -15,9 +15,8 @@ namespace ClsAppTypeColumn
 
         public People Add(People model)
         {
-            using (SqlCommand _command = _connection.CreateCommand())
-            {
-                _connection.Open();
+            using (SqlCommand _command = _connection.OpenAndCreateCommand())
+            {                
                 _command.CommandText = "INSERT INTO People(Name, GuidId, DateCreated, TimeCreated, Active, Value) ";
                 _command.CommandText += "VALUES(@Name, @GuidId, @DateCreated, @TimeCreated, @Active, @Value); ";
                 _command.CommandText += "SELECT @@IDENTITY; ";
